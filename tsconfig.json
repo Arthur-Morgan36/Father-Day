@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "outDir": "src/FrontEnd",
+    "target": "esnext",
+    "strict": true,
+    "watch": true,
+    "noUncheckedIndexedAccess": true,
+    "lib": ["dom", "es2021", "dom.iterable"],
+    "module": "esNext"
+  }
+}
