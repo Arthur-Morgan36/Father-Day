@@ -21,6 +21,7 @@ body {
     top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
+    padding-right: 5rem;
   }
 
 #party-on {
@@ -62,6 +63,8 @@ body {
 .party-message {
     animation: fadein 1.5s;
     text-align: center;
+    padding-right: 0rem;
+    padding-left: 5rem;
     font-size: 3.5rem;
     text-shadow: 0 0 10px;
 }
