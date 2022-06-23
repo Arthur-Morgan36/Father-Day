@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Happy Father's Day!</title>
+</head>
+
+<body>
+    <div class="activation">
+        <button id="party-on">
+            click me to toggle party mode
+            (or click on the space key)
+        </button>
+    </div>
+
+    <div class="github-code">
+        <a id="code" target="_blank" rel="noopener noreferrer"
+            href="https://github.com/Arthur-Morgan36/Father-s-Day">🔗Source Code</a>
+    </div>
+
+    <script src="confetti.js"></script>
+    <script>
+        "use strict";
+        const activationButton = document.querySelector("#party-on");
+
+        if (activationButton) {
+            activationButton.innerHTML = activationButton.textContent
+                .split(" ")
+                .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(" ").replace("(o", "<br>(O");
+        }
+
+        let interv = 0;
+        let partyOn = false;
+        function initiatePartyMode() {
+            // Start the party
+            start();
+            // End the party
+            stop();
+        }
+
+        function start() {
+            const body = document.body;
+            const activationDiv = document.querySelector(".activation");
+            const code = document.querySelector("#code");
+
+
+            setTimeout(() => {
+                partyOn = true;
+                body.classList.toggle("party");
+                activationButton.classList.toggle("element-off");
+                code.classList.toggle("element-off");
+
+                const partyText = document.createElement("p");
+                activationDiv.appendChild(partyText);
+                partyText.setAttribute("id", "party-text");
+                partyText.classList.toggle("party-message");
+                partyText.innerHTML = `❤ Joyeuse Fête des Pères ❤${"<br>".repeat(3)}Love you pap 😄`;
+
+                interv = setInterval(() => {
+                    partyText.style.color = "#" + (Math.random() * 0xffffff * 10 ** 6 + 1)
+                        .toString(16)
+                        .slice(0, 6);
+                }, 250);
+                console.log("Party yay!");
+
+                confetti.start();
+            }, 500);
+        };
+
+        function stop() {
+            const body = document.body;
+            const activationDiv = document.querySelector(".activation");
+            const code = document.querySelector("#code");
+            const confettiDuration = 7500;
+
+
+            setTimeout(() => confetti.stop(), confettiDuration);
+
+            setTimeout(() => {
+                partyOn = false;
+                body.classList.toggle("party");
+                activationButton.classList.toggle("element-off");
+                code.classList.toggle("element-off");
+                const partyText = document.querySelector("#party-text");
+                partyText.remove();
+
+                clearInterval(interv);
+            }, confettiDuration + 4200);
+        };
+
+        document.addEventListener("keydown", (key) => {
+            if (key.code === "Space" && !partyOn) initiatePartyMode();
+        });
+
+        activationButton?.addEventListener("click", (_) => {
+            if (!partyOn) initiatePartyMode();
+        });
+    </script>
+</body>
+
+</html>

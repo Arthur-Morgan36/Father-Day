@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Product Sans';
+}
+
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    background: hsl(235, 19%, 13%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.activation {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+#party-on {
+    background-color: hsl(235, 19%, 20%);
+    padding: 5%;
+    color: hsl(0, 0%, 100%);
+    text-align: center;
+    width: 115%;
+    font-size: 3.5rem;
+    border-radius: 2rem;
+    border-width: 1rem;
+    cursor: pointer;
+    text-shadow: 0 0 10px;
+}
+
+#party-on:hover {
+    background-color: hsl(235, 19%, 30%);
+}
+
+#code {
+    position: absolute;
+    font-size: 1.4rem;
+    color: hsl(201, 89%, 54%);
+    font-family: "Monaco";
+    bottom: 4rem;
+    right: 6rem;
+}
+
+.party {
+    animation: fadein 1.5s;
+    background: linear-gradient(45deg, red, blue);
+}
+
+.element-off {
+    animation: fadein 1.5s;
+    display: none;
+}
+
+.party-message {
+    animation: fadein 1.5s;
+    text-align: center;
+    font-size: 3.5rem;
+    text-shadow: 0 0 10px;
+}
+
+@keyframes fadein {
+    0% { opacity:  0; }
+    100% { opacity: 1; }
+}
